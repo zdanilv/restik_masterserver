@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "restik_masterserver", "restik_masterserver\restik_masterserver.csproj", "{45BD8C8A-37BC-4DE8-88C1-69F91E2ADA20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{017438CB-5EB8-4CC3-A507-81EABF7D1AB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45BD8C8A-37BC-4DE8-88C1-69F91E2ADA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BD8C8A-37BC-4DE8-88C1-69F91E2ADA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BD8C8A-37BC-4DE8-88C1-69F91E2ADA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BD8C8A-37BC-4DE8-88C1-69F91E2ADA20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017438CB-5EB8-4CC3-A507-81EABF7D1AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017438CB-5EB8-4CC3-A507-81EABF7D1AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017438CB-5EB8-4CC3-A507-81EABF7D1AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017438CB-5EB8-4CC3-A507-81EABF7D1AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD5558F6-FEF6-4B90-A5BC-2C91BEBB2169}
+	EndGlobalSection
+EndGlobal

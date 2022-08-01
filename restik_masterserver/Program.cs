@@ -36,8 +36,9 @@ namespace restik_masterserver
                     Console.WriteLine(req.Headers);
                     res.StatusCode = 200;
                     res.AsText("Welcome! Хай!");
+                    Console.WriteLine("{0}: OK - Response was sent successfully.", DateTime.Now);
                 }, "POST");
-                Route.Add("/sign/user={username};password={hash}", (req, res, props) =>
+                Route.Add("/sign/user={username};password={password}", (req, res, props) =>
                 {
                     if (props != null)
                     {
@@ -47,7 +48,8 @@ namespace restik_masterserver
                         Console.WriteLine(req.ProtocolVersion);
                         Console.WriteLine(req.Headers);
                         res.StatusCode = 200;
-                        res.AsBytes(req, DBClient.Login(props["username"], props["hash"]));
+                        res.AsBytes(req, DBClient.Login(props["username"], props["password"]));
+                        Console.WriteLine("{0}: OK - Response was sent successfully.", DateTime.Now);
                     }
                 }, "POST");
                 HttpServer.ListenAsync(1337, CancellationToken.None, Route.OnHttpRequestAsync).Wait();

@@ -61,11 +61,11 @@ namespace restik_masterserver
                     SqlCommand command = new SqlCommand(_query, sqlConnection);
                     command.ExecuteNonQuery();
                     command.Dispose();
-                    Console.WriteLine("{0}: OK - Request was successful.", DateTime.Now);
+                    Console.WriteLine("{0}: OK - Query was successful.", DateTime.Now);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("{0}: ERROR - Request error.", DateTime.Now);
+                    Console.WriteLine("{0}: ERROR - Query error.", DateTime.Now);
                     Console.WriteLine(ex.Message);
                 }
             }
@@ -90,11 +90,11 @@ namespace restik_masterserver
                                 return null;
                         }
                     }
-                    Console.WriteLine("{0}: OK - Request was successful.", DateTime.Now);
+                    Console.WriteLine("{0}: OK - Query was successful.", DateTime.Now);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("{0}: ERROR - Request error.", DateTime.Now);
+                    Console.WriteLine("{0}: ERROR - Query error.", DateTime.Now);
                     Console.WriteLine(ex.Message);
                     return null;
                 }
@@ -105,9 +105,9 @@ namespace restik_masterserver
                 return null;
             }
         }
-        public byte[] Login(string username, string hash) // Проверяем есть ли такой пользователь, и отправляем информацию о пользователе в виде байтов
+        public byte[] Login(string username, string password) // Проверяем есть ли такой пользователь, и отправляем информацию о пользователе в виде байтов
         {
-            string sqlExpression = $"SELECT * FROM Users WHERE Username='{username}' AND Password='{hash}'";
+            string sqlExpression = $"SELECT * FROM Users WHERE Username='{username}' AND Password='{password}'";
             try
             {
                 using (SqlCommand command = new SqlCommand(sqlExpression, sqlConnection))
@@ -128,7 +128,7 @@ namespace restik_masterserver
                                 };
                             }
                             Console.WriteLine("{0}: OK - User {1} has logged in.", DateTime.Now, user.Username);
-                            return user.GetBytes();
+                            return Crypt.Encrypt(user.GetText()); //Хэшируем информацию о пользователе, hash - используем как соль
                         }
                         else
                         {

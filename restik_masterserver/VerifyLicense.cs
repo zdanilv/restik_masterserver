@@ -21,7 +21,7 @@ namespace restik_masterserver
         {
             Thread.Sleep(5000);
             TimerCallback timerCallback = new TimerCallback(Verify);
-            _timer = new Timer(timerCallback, 0, 0, 5000);
+            _timer = new Timer(timerCallback, 0, 0, 1000*60*60*24); // Каждые 24 часа проверка лицензии
         }
         private static void Verify(object obj) // Проверка лицензии и изменение активности лицензии, если период закончился
         {
